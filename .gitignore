@@ -1,0 +1,13 @@
+# Node modules
+client/node_modules/
+server/node_modules/
+
+# Environment variables
+.env
+
+# Pictures for developement
+client/public/beer-images
+client/public/grass.png
+
+# data seeding file
+server/seed.js
