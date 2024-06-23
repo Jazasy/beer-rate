@@ -1,4 +1,5 @@
 import { useState } from "react";
+import toast from "react-hot-toast";
 import axios from "axios";
 import { Paper, Box, TextField, Rating, Button } from "@mui/material";
 import {
@@ -29,8 +30,14 @@ export default function ShowBeerFormPaper({ id, fetchBeer }) {
 	};
 
 	const submitReview = async () => {
-		await axios.post(`reviews/${id}`, reviewData);
-		fetchBeer();
+		if (reviewData.rating === 0) {
+			toast.error("You have to pick a rating!");
+		} else {
+			await axios.post(`reviews/${id}`, reviewData);
+			fetchBeer();
+			setReviewData({ name: "", note: "", rating: 0 });
+			toast.success("Rating submitted!");
+		}
 	};
 
 	return (

@@ -3,18 +3,12 @@ import "./App.css";
 import axios from "axios";
 
 import { Routes, Route } from "react-router-dom";
-import {
-	CssBaseline,
-	AppBar,
-	Toolbar,
-	IconButton,
-	Typography,
-	Button,
-} from "@mui/material";
-import MenuIcon from "@mui/icons-material/Menu";
+import { CssBaseline } from "@mui/material";
+import { Toaster } from "react-hot-toast";
 
 import Home from "../src/pages/Home";
 import Show from "../src/pages/Show";
+import Navbar from "./components/Navbar";
 
 axios.defaults.baseURL = "http://localhost:8000";
 axios.defaults.withCredentials = true;
@@ -23,24 +17,8 @@ function App() {
 	return (
 		<>
 			<CssBaseline />
-
-			<AppBar position="static">
-				<Toolbar>
-					<IconButton
-						size="large"
-						edge="start"
-						color="inherit"
-						aria-label="menu"
-						sx={{ mr: 2 }}
-					>
-						<MenuIcon />
-					</IconButton>
-					<Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-						Add
-					</Typography>
-					<Button color="inherit">Login</Button>
-				</Toolbar>
-			</AppBar>
+			<Navbar />
+			<Toaster position="bottom-right" toastOptions={{ duration: 3000 }} />
 			<Routes>
 				<Route path="/" element={<Home />} />
 				<Route path="/:id" element={<Show />} />
