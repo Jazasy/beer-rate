@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 
 import ShowBeerCard from "../components/ShowBeerCard";
 import ShowBeerFormPaper from "../components/ShowBeerFormPaper";
+import ShowBeerReviewsPaper from "../components/ShowBeerReviewsPaper";
 
 export default function Show() {
 	const { id } = useParams();
@@ -13,7 +14,7 @@ export default function Show() {
 	const fetchBeer = async () => {
 		const result = await axios.get(`/beers/${id}`);
 		setBeer(result.data);
-	}
+	};
 
 	useEffect(() => {
 		fetchBeer();
@@ -28,7 +29,8 @@ export default function Show() {
 			) : (
 				<>
 					<ShowBeerCard beer={beer} />
-					<ShowBeerFormPaper id={id} fetchBeer={fetchBeer}/>
+					<ShowBeerFormPaper id={id} fetchBeer={fetchBeer} />
+					<ShowBeerReviewsPaper reviews={beer.reviews} />
 				</>
 			)}
 		</Container>
