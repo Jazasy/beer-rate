@@ -55,6 +55,18 @@ const showReviewFormStyle = {
     flexDirection: { xs: "column", md: "row" },
 }
 
+const showCardHeadBoxStyle = {
+    backgroundColor: "rgba(255,255,255,0.6)",
+    width: "fit-content",
+    borderRadius: "999px",
+    display: "flex",
+    alignSelf: "center",
+    flexDirection: { xs: "column", md: "row" },
+    px: 2,
+    py: 0,
+    mb: 2,
+}
+
 export {
     homeContainerStyle,
     homeBeerCardStyle,
@@ -63,5 +75,6 @@ export {
     showRatingStyle,
     showNameTextStyle,
     showNoteTextStyle,
-    showReviewFormStyle
+    showReviewFormStyle,
+    showCardHeadBoxStyle
 };
