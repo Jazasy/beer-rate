@@ -1,41 +1,48 @@
-import {
-	Card,
-	Typography,
-	CardMedia,
-	Rating,
-	Box,
-	CardContent,
-	Grid,
-} from "@mui/material";
+import { Card, CardMedia, Box, Button } from "@mui/material";
 import { showBeerCardStyle } from "../styles";
 import ShowCardHeadBox from "./ShowCardHeadBox";
+import { useTheme } from "@mui/material/styles";
+import useMediaQuery from "@mui/material/useMediaQuery";
+import { useEffect, useState } from "react";
+import ShowBeerCardDescription from "./ShowBeerCardDescription";
 
 export default function ShowBeerCard({ beer }) {
+	const [showContent, setSchowContent] = useState(false);
+
+	const theme = useTheme();
+	const isMdUp = useMediaQuery(theme.breakpoints.up("md"));
+
+	useEffect(() => {
+		isMdUp && setSchowContent(false);
+	}, [isMdUp]);
+
+	const handleClick = () => {
+		setSchowContent((oldShowContent) => !oldShowContent);
+	};
+
 	return (
 		<Card sx={showBeerCardStyle}>
 			<ShowCardHeadBox beer={beer} />
-			<Grid container>
-				<Grid item xs={6}>
-						<CardContent>
-							<Typography variant="body1">
-								Az ország egyik kedvenc sörét, a Borsodi világost 1973 óta
-								folyamatosan tökéletesítjük fogyasztóinknak. Így a kiváló
-								minőségű, láger típusú sörünket mára tisztán árpamalátából,
-								kukoricadara nélkül főzzük. A Borsodi Világos íze az évek során
-								még kiegyensúlyozottabb lett, de továbbra is jellemző rá a
-								kellemes keserűség és a csillogó aranysárga szín, melyet dús,
-								finom pórusú hab koronáz.
-							</Typography>
-						</CardContent>
-				</Grid>
-				<Grid item xs={6}>
-					<CardMedia
-						/* sx={{ px: { xs: 3, md: "30%" } }} */
-						component="img"
-						image={beer.image}
-					/>
-				</Grid>
-			</Grid>
+			<Box sx={{ display: "flex", flexDirection: { xs: "column", md: "row" } }}>
+				<CardMedia
+					sx={{ width: "300px", alignSelf: "center" }}
+					/* sx={{ px: { xs: 3, md: "30%" } }} */
+					component="img"
+					image={beer.image}
+				/>
+				{isMdUp ? (
+					<ShowBeerCardDescription beer={beer} />
+				) : (
+					<Button
+						variant="text"
+						sx={{ fontWeight: "700" }}
+						onClick={handleClick}
+					>
+						{showContent ? "Less" : "Read more"}
+					</Button>
+				)}
+				{showContent && <ShowBeerCardDescription beer={beer} />}
+			</Box>
 		</Card>
 	);
 }

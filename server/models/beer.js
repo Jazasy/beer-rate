@@ -10,6 +10,7 @@ const BeerSchema = new Schema({
         unique: true
     },
     image: String,
+    description: String,
     reviews: [
         {
             type: Schema.Types.ObjectId,
@@ -19,9 +20,9 @@ const BeerSchema = new Schema({
 }, opts);
 
 BeerSchema.virtual("rating").get(function () {
-    if(this.reviews.length === 0) return 0;
+    if (this.reviews.length === 0) return 0;
     let sum = 0;
-    this.reviews.forEach(review => sum+=review.rating);
+    this.reviews.forEach(review => sum += review.rating);
     return sum / this.reviews.length;
 })
 

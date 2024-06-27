@@ -1,3 +1,5 @@
+import { boxSizing, height } from "@mui/system";
+
 const homeContainerStyle = {
     display: "flex",
     flexDirection: { xs: "column", md: "row" },
