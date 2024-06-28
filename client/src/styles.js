@@ -69,6 +69,17 @@ const showCardHeadBoxStyle = {
     mb: 2,
 }
 
+const loadingTextStyle = {
+    fontWeight: 700,
+    my: 20,
+    backgroundColor: "rgba(255,255,255, 0.6)",
+    borderRadius: 999,
+    display: "flex",
+    width: "fit-content",
+    mx: "auto",
+    p: 1,
+}
+
 export {
     homeContainerStyle,
     homeBeerCardStyle,
@@ -78,5 +89,6 @@ export {
     showNameTextStyle,
     showNoteTextStyle,
     showReviewFormStyle,
-    showCardHeadBoxStyle
+    showCardHeadBoxStyle,
+    loadingTextStyle
 };

@@ -1,14 +1,18 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
 
-
-import { homeContainerStyle, homeBeerCardStyle } from "../styles";
+import { homeContainerStyle } from "../styles";
 
 import { Container } from "@mui/material";
 import HomeBeerCard from "../components/HomeBeerCard";
+import LoadingText from "../components/LoadingText";
 
 export default function Home() {
 	const [data, setData] = useState([]);
+
+	const sortBeers = (beers) => {
+		
+	}
 
 	useEffect(() => {
 		axios.get("/beers").then((res) => setData(res.data));
@@ -17,9 +21,11 @@ export default function Home() {
 	return (
 		<>
 			<Container sx={homeContainerStyle}>
-				{data.map((beer, i) => (
-					<HomeBeerCard beer={beer} key={beer._id}/>
-				))}
+				{data.length === 0 ? (
+					<LoadingText />
+				) : (
+					data.map((beer, i) => <HomeBeerCard beer={beer} key={beer._id} />)
+				)}
 			</Container>
 		</>
 	);

@@ -1,4 +1,4 @@
-import { Typography, Container } from "@mui/material";
+import { Container } from "@mui/material";
 import { useParams } from "react-router-dom";
 import axios from "axios";
 import { useEffect, useState } from "react";
@@ -6,6 +6,7 @@ import { useEffect, useState } from "react";
 import ShowBeerCard from "../components/ShowBeerCard";
 import ShowBeerFormPaper from "../components/ShowBeerFormPaper";
 import ShowBeerReviewsPaper from "../components/ShowBeerReviewsPaper";
+import LoadingText from "../components/LoadingText";
 
 export default function Show() {
 	const { id } = useParams();
@@ -23,9 +24,7 @@ export default function Show() {
 	return (
 		<Container>
 			{!beer ? (
-				<Typography align="center" sx={{ my: 20 }}>
-					Loading...
-				</Typography>
+				<LoadingText />
 			) : (
 				<>
 					<ShowBeerCard beer={beer} />

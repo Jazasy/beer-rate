@@ -5,7 +5,7 @@ export default function ShowBeerCardDescription({beer}) {
 		<CardContent>
 			<Typography
 				variant="subtitle1"
-				sx={{ fontWeight: 700, fontSize: "20px" }}
+				sx={{ fontWeight: 700, fontSize: "20px", textAlign: "justify" }}
 			>
 				{beer.description}
 			</Typography>
