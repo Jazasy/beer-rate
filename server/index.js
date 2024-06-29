@@ -1,13 +1,16 @@
 const express = require("express");
 const cors = require("cors");
 const mongoose = require("mongoose");
+const dotenv = require("dotenv").config();
 
 const beerRoutes = require("./routes/beerRoutes");
 const reviewRoutes = require("./routes/reviewRoutes");
 
 const app = express();
 
-mongoose.connect("mongodb://127.0.0.1:27017/beer-rate")
+const dbUrl = process.env.DB_URL;
+/* "mongodb://127.0.0.1:27017/beer-rate" */
+mongoose.connect(dbUrl)
     .then(() => console.log("Database Connected"))
     .catch((error) => console.log("Database Connection Failed", error))
 

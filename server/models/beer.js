@@ -11,6 +11,7 @@ const BeerSchema = new Schema({
     },
     image: String,
     description: String,
+    country: String,
     reviews: [
         {
             type: Schema.Types.ObjectId,
