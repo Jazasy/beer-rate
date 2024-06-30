@@ -11,7 +11,7 @@ export default function Home() {
 	const [data, setData] = useState([]);
 
 	const sortBeers = (beers) => {
-		
+		return beers.sort((a, b) => b.rating - a.rating)
 	}
 
 	useEffect(() => {
@@ -24,7 +24,7 @@ export default function Home() {
 				{data.length === 0 ? (
 					<LoadingText />
 				) : (
-					data.map((beer, i) => <HomeBeerCard beer={beer} key={beer._id} />)
+					sortBeers(data).map((beer, i) => <HomeBeerCard beer={beer} key={beer._id} />)
 				)}
 			</Container>
 		</>
