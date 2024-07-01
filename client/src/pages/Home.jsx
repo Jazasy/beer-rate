@@ -1,5 +1,6 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
 
 import { homeContainerStyle } from "../styles";
 
@@ -8,6 +9,7 @@ import HomeBeerCard from "../components/HomeBeerCard";
 import LoadingText from "../components/LoadingText";
 
 export default function Home() {
+	const { country } = useParams();
 	const [data, setData] = useState([]);
 
 	const sortBeers = (beers) => {
@@ -15,8 +17,9 @@ export default function Home() {
 	}
 
 	useEffect(() => {
-		axios.get("/beers").then((res) => setData(res.data));
-	}, []);
+		!country ? axios.get("/beers").then((res) => setData(res.data)) : 
+		axios.get(`/beers/countries/${country}`).then((res) => setData(res.data));
+	}, [country]);
 
 	return (
 		<>

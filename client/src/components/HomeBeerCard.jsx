@@ -19,7 +19,7 @@ export default function HomeBeerCard({ beer }) {
 				image={beer.image}
 			/>
 			<CardActions>
-				<Button onClick={() => navigate(`/${beer._id}`)} variant="contained">
+				<Button onClick={() => navigate(`/beers/${beer._id}`)} variant="contained">
 					View More
 				</Button>
 			</CardActions>

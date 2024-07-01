@@ -1,10 +1,8 @@
-import { boxSizing, height } from "@mui/system";
-
 const homeContainerStyle = {
     display: "flex",
     flexDirection: { xs: "column", md: "row" },
     flexWrap: "wrap",
-    justifyContent: "space-between",
+    justifyContent: "space-around",
 };
 
 const homeBeerCardStyle = {

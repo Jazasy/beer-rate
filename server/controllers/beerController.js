@@ -15,8 +15,15 @@ const getBeer = async (req, res) => {
     res.json(foundBeer);
 }
 
+const getCountryBeer = async (req, res) => {
+    const { country } = req.params;
+    const countryBeer = await Beer.find({ country }).populate("reviews");
+    res.json(countryBeer);
+}
+
 module.exports = {
     test,
     getAllBeer,
-    getBeer
+    getBeer,
+    getCountryBeer,
 }

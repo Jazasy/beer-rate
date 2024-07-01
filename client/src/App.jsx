@@ -20,8 +20,10 @@ function App() {
 			<Navbar />
 			<Toaster position="bottom-right" toastOptions={{ duration: 3000 }} />
 			<Routes>
-				<Route path="/" element={<Home />} />
-				<Route path="/:id" element={<Show />} />
+				<Route path="/beers" element={<Home />} />
+				<Route path="/beers/countries/:country" element={<Home />} />
+				<Route path="/addbeer" element={<Home />} />
+				<Route path="/beers/:id" element={<Show />} />
 			</Routes>
 		</>
 	);
