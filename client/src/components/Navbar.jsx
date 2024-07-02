@@ -35,7 +35,7 @@ export default function Navbar() {
 		page === "All"
 			? navigate("/beers")
 			: page === pages[pages.length - 1]
-			? console.log("i cant find a beer")
+			? navigate("/addbeer")
 			: navigate(`/beers/countries/${page.toLowerCase()}`);
 	};
 

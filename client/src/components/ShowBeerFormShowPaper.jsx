@@ -70,7 +70,7 @@ export default function ShowBeerFormShowPaper({ id, fetchBeer }) {
 				onChange={handleChange}
 			/>
 			<Button
-				sx={{ my: 1, width: { xs: 1, md: "60%" }, alignSelf: "center" }}
+				sx={{ my: 1, mb: 2, width: { xs: 1, md: "60%" }, alignSelf: "center" }}
 				variant="contained"
 				onClick={submitReview}
 			>

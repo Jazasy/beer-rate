@@ -30,7 +30,6 @@ const showReviewPaperStyle = {
 };
 
 const showRatingStyle = {
-    my: 1,
     alignSelf: "center",
     backgroundColor: "rgba(255,255,255, 0.6)",
     p: 1,
@@ -38,14 +37,16 @@ const showRatingStyle = {
 }
 
 const showNameTextStyle = {
-    my: 1,
+    my: 2,
+    mb: 1,
     width: { sx: 1, md: 0.3 },
     mr: { xs: 0, md: 1 },
     backgroundColor: "rgba(255,255,255, 0.6)",
 }
 
 const showNoteTextStyle = {
-    my: 1,
+    my: 2,
+    mb: 1,
     width: 1,
     backgroundColor: "rgba(255,255,255, 0.6)",
 }

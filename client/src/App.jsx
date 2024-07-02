@@ -9,6 +9,7 @@ import { Toaster } from "react-hot-toast";
 import Home from "../src/pages/Home";
 import Show from "../src/pages/Show";
 import Navbar from "./components/Navbar";
+import Add from "../src/pages/Add";
 
 axios.defaults.baseURL = "http://localhost:8000";
 axios.defaults.withCredentials = true;
@@ -22,7 +23,7 @@ function App() {
 			<Routes>
 				<Route path="/beers" element={<Home />} />
 				<Route path="/beers/countries/:country" element={<Home />} />
-				<Route path="/addbeer" element={<Home />} />
+				<Route path="/addbeer" element={<Add />} />
 				<Route path="/beers/:id" element={<Show />} />
 			</Routes>
 		</>
