@@ -21,9 +21,17 @@ const getCountryBeer = async (req, res) => {
     res.json(countryBeer);
 }
 
+const addBeer = async (req, res) => {
+    const {name, description, country} = req.body;
+    console.log(name, description, country);
+    console.log(req);
+    
+}
+
 module.exports = {
     test,
     getAllBeer,
     getBeer,
     getCountryBeer,
+    addBeer
 }

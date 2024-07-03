@@ -1,4 +1,4 @@
-import { Paper, Box, TextField, Rating, Button } from "@mui/material";
+import { Paper, Box, TextField, Rating } from "@mui/material";
 import {
 	showReviewPaperStyle,
 	showReviewFormStyle,
@@ -9,6 +9,7 @@ import {
 import { useState } from "react";
 import toast from "react-hot-toast";
 import axios from "axios";
+import SubmitButton from "./SubmitButton";
 
 export default function ShowBeerFormShowPaper({ id, fetchBeer }) {
 	const [reviewData, setReviewData] = useState({
@@ -69,13 +70,7 @@ export default function ShowBeerFormShowPaper({ id, fetchBeer }) {
 				value={reviewData.rating}
 				onChange={handleChange}
 			/>
-			<Button
-				sx={{ my: 1, mb: 2, width: { xs: 1, md: "60%" }, alignSelf: "center" }}
-				variant="contained"
-				onClick={submitReview}
-			>
-				Submit
-			</Button>
+			<SubmitButton handleClick={submitReview} />
 		</Paper>
 	);
 }
