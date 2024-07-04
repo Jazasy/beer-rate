@@ -9,7 +9,7 @@ const router = express.Router();
 
 router.get("/", getAllBeer);
 
-router.post("/", upload.array("image"), addBeer);
+router.post("/", upload.single("image"), addBeer);
 
 router.get("/countries/:country", getCountryBeer);
 

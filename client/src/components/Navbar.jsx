@@ -55,7 +55,7 @@ export default function Navbar() {
 							>
 								<MenuIcon />
 							</IconButton>
-							<Menu 
+							<Menu
 								id="menu-appbar"
 								anchorEl={anchorElNav}
 								anchorOrigin={{
@@ -70,17 +70,28 @@ export default function Navbar() {
 								open={Boolean(anchorElNav)}
 								onClose={handleCloseNavMenu}
 								sx={{
-									display: { xs: "block", md: "none" }
+									display: { xs: "block", md: "none" },
 								}}
 							>
 								{pages.map((page) => (
 									<MenuItem key={page} onClick={handleCloseNavMenu}>
-										<Typography textAlign="center">{page}</Typography>
+										<Typography
+											textAlign="center"
+											onClick={() => handleCloseNavMenu(page)}
+										>
+											{page}
+										</Typography>
 									</MenuItem>
 								))}
 							</Menu>
 						</Box>
-						<Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" }, justifyContent: "center" }}>
+						<Box
+							sx={{
+								flexGrow: 1,
+								display: { xs: "none", md: "flex" },
+								justifyContent: "center",
+							}}
+						>
 							{pages.map((page) => (
 								<Button
 									key={page}
@@ -94,26 +105,6 @@ export default function Navbar() {
 					</Toolbar>
 				</Container>
 			</AppBar>
-
-			{/* <AppBar position="static">
-				<Toolbar>
-					<IconButton
-						size="large"
-						edge="start"
-						color="inherit"
-						aria-label="menu"
-						sx={{ mr: 2 }}
-					>
-						<MenuIcon />
-					</IconButton>
-					<Button onClick={() => navigate("/")} color="inherit">
-						Home
-					</Button>
-					<Button color="inherit" sx={{ marginLeft: "auto" }}>
-						Couldnt find a beer?
-					</Button>
-				</Toolbar>
-			</AppBar> */}
 		</>
 	);
 }

@@ -5,27 +5,45 @@ const test = (req, res) => {
 }
 
 const getAllBeer = async (req, res) => {
-    const allBeer = await Beer.find().populate("reviews");
-    res.json(allBeer);
+    try {
+        const allBeer = await Beer.find().populate("reviews");
+        res.json(allBeer);
+    } catch (error) {
+        console.log(error);
+    }
+
 }
 
 const getBeer = async (req, res) => {
-    const { id } = req.params;
-    const foundBeer = await Beer.findOne({ _id: id }).populate("reviews");
-    res.json(foundBeer);
+    try {
+        const { id } = req.params;
+        const foundBeer = await Beer.findOne({ _id: id }).populate("reviews");
+        res.json(foundBeer);
+    } catch (error) {
+        console.log(error);
+    }
 }
 
 const getCountryBeer = async (req, res) => {
-    const { country } = req.params;
-    const countryBeer = await Beer.find({ country }).populate("reviews");
-    res.json(countryBeer);
+    try {
+        const { country } = req.params;
+        const countryBeer = await Beer.find({ country }).populate("reviews");
+        res.json(countryBeer);
+    } catch (error) {
+        console.log(error);
+    }
 }
 
 const addBeer = async (req, res) => {
-    const {name, description, country} = req.body;
-    console.log(name, description, country);
-    console.log(req);
-    
+    try {
+        const { name, description, country } = req.body;
+        const newBeer = new Beer({ name, description, country: country.toLowerCase() });
+        newBeer.image = req.file;
+        await newBeer.save();
+        res.json(newBeer);
+    } catch (error) {
+        console.log(error);
+    }
 }
 
 module.exports = {

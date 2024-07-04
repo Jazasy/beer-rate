@@ -34,10 +34,14 @@ export default function ShowBeerFormShowPaper({ id, fetchBeer }) {
 		if (reviewData.rating === 0) {
 			toast.error("You have to pick a rating!");
 		} else {
-			await axios.post(`reviews/${id}`, reviewData);
-			fetchBeer();
-			setReviewData({ name: "", note: "", rating: 0 });
-			toast.success("Rating submitted!");
+			try {
+				await axios.post(`reviews/${id}`, reviewData);
+				fetchBeer();
+				setReviewData({ name: "", note: "", rating: 0 });
+				toast.success("Rating submitted!");
+			} catch (error) {
+				toast.error("An error occured during submition");
+			}
 		}
 	};
 

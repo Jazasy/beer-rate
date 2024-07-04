@@ -6,8 +6,8 @@ server/node_modules/
 .env
 
 # Pictures for developement
-client/public/beer-images
-client/public/grass.png
+
+client/dev_pics/
 
 # data seeding file
 server/seed.js

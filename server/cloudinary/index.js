@@ -10,7 +10,7 @@ cloudinary.config({
 const storage = new CloudinaryStorage({
     cloudinary,
     params: {
-        folder: "BeerRate",
+        folder: "BeerRate/beers",
         allowedFormats: ["jpeg", "png", "jpg"]
     }
 })

@@ -16,7 +16,7 @@ export default function HomeBeerCard({ beer }) {
 			<CardMedia
 				sx={{ p: 3, px: { xs: "30%", md: 3 } }}
 				component="img"
-				image={beer.image}
+				image={beer.image.path}
 			/>
 			<CardActions>
 				<Button onClick={() => navigate(`/beers/${beer._id}`)} variant="contained">

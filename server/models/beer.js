@@ -4,12 +4,17 @@ const Review = require("../models/review");
 
 const opts = { toJSON: { virtuals: true } };
 
+const ImageSchema = new Schema({
+    path: String, 
+    filename: String
+})
+
 const BeerSchema = new Schema({
     name: {
         type: String,
         unique: true
     },
-    image: String,
+    image: ImageSchema,
     description: String,
     country: String,
     reviews: [

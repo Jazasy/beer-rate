@@ -24,7 +24,7 @@ export default function ShowCardContent({ beer }) {
 				sx={{ width: "300px", alignSelf: "center" }}
 				/* sx={{ px: { xs: 3, md: "30%" } }} */
 				component="img"
-				image={beer.image}
+				image={beer.image.path}
 			/>
 			{isMdUp ? (
 				<ShowBeerCardDescription beer={beer} />

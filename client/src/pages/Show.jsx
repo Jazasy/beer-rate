@@ -24,7 +24,7 @@ export default function Show() {
 	return (
 		<Container>
 			{!beer ? (
-				<LoadingText />
+				<LoadingText text="Loading..."/>
 			) : (
 				<>
 					<ShowBeerCard beer={beer} />

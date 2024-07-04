@@ -32,10 +32,9 @@ export default function FileInput({handleChange, beerData}) {
 			tabIndex={-1}
 			startIcon={<CloudUploadIcon />}
 		>
-			Upload file
+			Upload image
 			<VisuallyHiddenInput
 				type="file"
-				value={beerData.image}
 				name="image"
 				onChange={handleChange}
 			/>
