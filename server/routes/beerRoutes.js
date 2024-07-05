@@ -3,16 +3,17 @@ const multer = require('multer');
 const { storage } = require("../cloudinary")
 const upload = multer({ storage });
 
-const { getAllBeer, getBeer, getCountryBeer, addBeer } = require("../controllers/beerController")
+const { getAllBeer, getBeer, getCountryBeer, addBeer } = require("../controllers/beerController");
+const catchAsync = require("../utils/catchAsync");
 
 const router = express.Router();
 
-router.get("/", getAllBeer);
+router.get("/", catchAsync(getAllBeer));
 
-router.post("/", upload.single("image"), addBeer);
+router.post("/", upload.single("image"), catchAsync(addBeer));
 
-router.get("/countries/:country", getCountryBeer);
+router.get("/countries/:country", catchAsync(getCountryBeer));
 
-router.get("/:id", getBeer);
+router.get("/:id", catchAsync(getBeer));
 
 module.exports = router;

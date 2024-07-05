@@ -5,6 +5,7 @@ const dotenv = require("dotenv").config();
 
 const beerRoutes = require("./routes/beerRoutes");
 const reviewRoutes = require("./routes/reviewRoutes");
+const ExpressError = require("./utils/ExpressError");
 
 const app = express();
 
@@ -23,6 +24,15 @@ app.use(express.json());
 
 app.use("/beers", beerRoutes);
 app.use("/reviews", reviewRoutes);
+
+app.all("*", (req, res, next) => {
+    next(new ExpressError("Page not found", 404))
+})
+
+app.use((err, req, res, next) => {
+    const { statusCode = 500, message = "Something went wrong" } = err;
+    res.status(statusCode).send(message);
+})
 
 const port = 8000;
 

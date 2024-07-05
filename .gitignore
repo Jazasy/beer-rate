@@ -10,3 +10,4 @@ client/dev_pics/
 
 # data seeding file
 server/seed.js
+server/deleteAll.js

@@ -48,7 +48,8 @@ export default function Add() {
 			setBeerData({ name: "", country: "", description: "", image: null });
 			toast.success("Beer submitted!");
 		} catch (error) {
-			toast.error("An error occured during submition");
+			//toast.error("An error occured during submition");
+			toast.error(error.response.data);
 		}
 	};
 
