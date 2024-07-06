@@ -3,6 +3,7 @@ const Review = require("../models/review");
 const ExpressError = require("../utils/ExpressError");
 
 const addReview = async (req, res) => {
+    if(!req.body.rationg) throw new ExpressError("Rating is required", 422);
     const { id } = req.params;
     const foundBeer = await Beer.findById(id).populate("reviews");
     if(!foundBeer) throw new ExpressError("No Beer Found", 404);
