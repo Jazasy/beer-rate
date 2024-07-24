@@ -12,8 +12,8 @@ import Navbar from "./components/Navbar";
 import Add from "../src/pages/Add";
 import Landing from "./pages/Landing";
 
-axios.defaults.baseURL = "http://localhost:8000";
-//axios.defaults.baseURL = "https://beer-rate.onrender.com";
+//axios.defaults.baseURL = "http://localhost:8000";
+axios.defaults.baseURL = "https://beer-rate.onrender.com";
 axios.defaults.withCredentials = true;
 
 function App() {
