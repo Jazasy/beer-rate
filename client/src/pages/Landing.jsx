@@ -11,9 +11,10 @@ export default function Landing() {
 				flexDirection: "column",
 				justifyContent: "center",
 				alignItems: "center",
+				textAlign: "center"
 			}}
 		>
-			<Typography variant="h1">Wellcome to BeerRate!</Typography>
+			<Typography variant="h1" sx={{fontSize: 75}}>Wellcome to BeerRate!</Typography>
 			<Typography variant="h4">Find the best beers anywhere</Typography>
 			<Button
 				variant="contained"
