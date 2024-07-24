@@ -17,7 +17,7 @@ mongoose.connect(dbUrl)
 
 app.use(cors({
     credentials: true,
-    origin: "https://beerrate.onrender.com" //process.env.CLIENT_URL
+    origin: /* "http://localhost:5173" */ "https://beerrate.onrender.com" //process.env.CLIENT_URL
 }));
 
 app.use(express.json());
